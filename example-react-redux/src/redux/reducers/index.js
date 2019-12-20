@@ -1,10 +1,6 @@
-function mainReducer(state = [], action) {
-  switch (action.type) {
-    case "ADD_SMTHNG":
-      return state.concat([action.text]);
-    default:
-      return state;
-  }
-}
+import { combineReducers } from "redux";
+import productosReducer from "./productosReducers";
 
-export default mainReducer;
+export default combineReducers({
+  productos: productosReducer
+});

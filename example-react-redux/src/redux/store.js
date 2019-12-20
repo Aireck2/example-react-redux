@@ -1,10 +1,16 @@
-import { createStore } from "redux";
-import mainReducer from "./reducers";
-const store = createStore(mainReducer);
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers";
 
-store.dispatch({
-  type: "ADD_SMTHNG",
-  text: "Read the docs"
-});
+const initState = {};
+
+const middleware = [thunk];
+
+const store = createStore(
+  rootReducer,
+  initState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 export default store;

@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render() {
     return (
-      <nav>
-        <h1> CRUD - React, Redux, REST API & Axios </h1>
-        <button> + </button>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-secondary justify-content-between d-flex">
+        <h1 className="">
+          <Link to={"/"} className="text-light">
+            CRUD - React, Redux, REST API & Axios
+          </Link>
+        </h1>
+        <Link to={"/productos/nuevo"} className="btn btn-danger">
+          Agregar Producto &#43;
+        </Link>
       </nav>
     );
   }
